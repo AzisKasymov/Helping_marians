@@ -20,7 +20,8 @@ def check_total_weight(total_weight, weights):  # Function, that calculates the 
 
 
 def main():
-    weights = [245, 268, 200]
+    total_weight = 713
+    weights = []
     while True:
         cargo_location = generate_cargo_location()  # array of locations of 3 boxes
         kilometers = []  # array of distances from martians
