@@ -24,6 +24,8 @@ def main():
     weights = []
     while True:
         cargo_location = generate_cargo_location()  # array of locations of 3 boxes
+        # print(cargo_location)
+        # print for checking right result
         kilometers = []  # array of distances from martians
         for i in range(3):
             klm_of_box = int(input(f'Enter the kilometer mark for box {i + 1}, number from 1 to 7: '))
