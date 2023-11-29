@@ -6,14 +6,12 @@ def generate_cargo_location():  # Dist from spaceship to city 7 km
 
 
 def check_cargo_location(locations, kilometers):
-    flag_found = False
-    if len(locations) == len(kilometers):
+    if len(locations) != len(kilometers):
         return False
-    if locations == kilometers:
-        flag_found = True
-    else:
-        flag_found = False
-    return flag_found
+    for i in range(3):
+        if locations[i] != kilometers[i]:
+            return False
+    return True
 
 
 def main():
@@ -26,7 +24,7 @@ def main():
             kilometers.append(klm_of_box)
         cargo_found = check_cargo_location(cargo_location, kilometers)     
         if cargo_found:
-            print('Congratulations! You found all the cargoes!')
+            print('Congratulations! You found all the cargo locations!')
             break
         else:
             print(
