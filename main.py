@@ -40,6 +40,7 @@ def main():
             else:
                 print('Fail, you entered wrong weight.')
         else:
+            cargo_location = generate_cargo_location()
             print(
                 'Fail, the cargoes were not found. Cargoes have changed their location,enter new kilometer marks.')
 
