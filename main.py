@@ -1,23 +1,36 @@
-def find_cargo_location():
-    total_weight = 713
-    box_weights = [200, 300, 213]
-    cargo_locations = [0, 0, 0]
+import random
 
+
+def generate_cargo_location():  # Dist from spaceship to city 7 km
+    return random.sample(range(1, 8), 3)
+
+
+def check_cargo_location(locations, kilometers):
+    flag_found = False
+    if len(locations) == len(kilometers):
+        return False
+    if locations == kilometers:
+        flag_found = True
+    else:
+        flag_found = False
+    return flag_found
+
+
+def main():
+    weights = [245, 268, 200]
     while True:
-        print("Enter kilometer mark:")
+        cargo_location = generate_cargo_location()  # array of locations of 3 boxes
+        kilometers = []  # array of distances from martians
         for i in range(3):
-            cargo_locations[i] = int(input(f"Box {i + 1}: "))
-            print("Error! Please enter a valid integer.")
-            return
-
-            cargo_locations[i] += i + 1
-
-        print("Boxes have been moved. Checking the result...")
-
-        if sum(box_weights) == total_weight:
-            print("congratulation")
+            klm_of_box = int(input(f'Enter the kilometer mark for box {i + 1}, number from 1 to 7: '))
+            kilometers.append(klm_of_box)
+        cargo_found = check_cargo_location(cargo_location, kilometers)     
+        if cargo_found:
+            print('Congratulations! You found all the cargoes!')
             break
         else:
-            print("Error! The total weight of the boxes is not 713 kg. Please re-enter.")
+            print(
+                'Fail, the cargoes were not found. Cargoes have changed their location,enter new kilometer marks.')
 
-find_cargo_location()
+
+main()
